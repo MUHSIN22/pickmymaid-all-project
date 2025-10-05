@@ -2,23 +2,26 @@ version: "3.9"
 
 services:
   server-staging:
-    build: ./server
-    target: prod
+    build: 
+      context: ./server
+      target: prod
     container_name: node-server-staging
     env_file: .env.staging
     networks:
       - app-network
 
   admin-staging:
-    build: ./admin-panel
-    target: prod
+    build: 
+      context: ./admin-panel
+      target: prod
     container_name: admin-staging
     networks:
       - app-network
 
   frontend-staging:
-    build: ./client
-    target: prod
+    build: 
+      context: ./client
+      target: prod
     container_name: frontend-staging
     networks:
       - app-network

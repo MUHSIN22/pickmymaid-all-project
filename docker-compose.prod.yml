@@ -2,23 +2,26 @@ version: "3.9"
 
 services:
   server-prod:
-    build: ./server
-    target: prod
+    build: 
+      context: ./server
+      target: prod
     container_name: node-server-prod
     env_file: .env.prod
     networks:
       - app-network
 
   admin-prod:
-    build: ./admin-panel
-    target: prod
+    build: 
+      context: ./admin-panel
+      target: prod
     container_name: admin-prod
     networks:
       - app-network
 
   frontend-prod:
-    build: ./client
-    target: prod
+    build: 
+      context: ./client
+      target: prod
     container_name: frontend-prod
     networks:
       - app-network
