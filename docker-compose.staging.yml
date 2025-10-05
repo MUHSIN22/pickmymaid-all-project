@@ -17,7 +17,7 @@ services:
       target: prod
     container_name: admin-staging
     env_file:
-      - ./admin-pane/.env.staging
+      - ./admin-panel/.env.staging
     networks:
       - app-network
 
