@@ -21,4 +21,4 @@ FROM base AS prod
 RUN npm ci
 COPY . .
 EXPOSE 8080
-CMD ["npm", "start"]
+CMD ["npx", "pm2-runtime", "src/server.ts", "--name", "pickmymaid-backend", "--interpreter", "ts-node"]
