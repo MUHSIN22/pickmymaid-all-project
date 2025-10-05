@@ -2,8 +2,7 @@ import axios from "axios";
 
 
 const isBuildTime =
-  process.env.NEXT_PUBLIC_DISABLE_API_DURING_BUILD === "true" &&
-  process.env.NODE_ENV === "production";
+  process.env.NEXT_PUBLIC_DISABLE_API_DURING_BUILD === "true"
 
 export const axiosInstance = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_URL}v1/`,
