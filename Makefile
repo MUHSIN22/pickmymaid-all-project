@@ -1,18 +1,57 @@
-SHELL := /bin/bash
-ENV_FILE := .env
-export $(shell sed 's/=.*//' $(ENV_FILE))
+# ========================
+# PROJECT MAKEFILE
+# ========================
 
-DC := docker compose
+# Docker Compose files
+DEV_COMPOSE=docker-compose.dev.yml
+STAGING_COMPOSE=docker-compose.staging.yml
+PROD_COMPOSE=docker-compose.prod.yml
 
-.PHONY: help dev prod up down self-signed cert-issue cert-concat
-
-help:
-	@echo "make dev          -> start dev stack (docker-compose.dev.yml)"
-	@echo "make prod         -> start prod stack (docker-compose.prod.yml) (generate haproxy config first)"
-	@echo "make up PROFILE=dev/prod"
-	@echo "make self-signed  -> create self-signed certs for dev (placed in haproxy/certs)"
-	@echo "make cert-issue   -> issue LetsEncrypt certs for production (requires certbot-web running)"
-	@echo ""
-
+# ========================
+# Development
+# ========================
 dev:
-	docker compose -f docker-compose.dev.yml up --build
+	docker compose -f $(DEV_COMPOSE) up --build
+
+dev-down:
+	docker compose -f $(DEV_COMPOSE) down
+
+dev-logs:
+	docker compose -f $(DEV_COMPOSE) logs -f
+
+# ========================
+# Staging
+# ========================
+staging:
+	docker compose -f $(STAGING_COMPOSE) up --build
+
+staging-down:
+	docker compose -f $(STAGING_COMPOSE) down
+
+staging-logs:
+	docker compose -f $(STAGING_COMPOSE) logs -f
+
+# ========================
+# Production
+# ========================
+prod:
+	docker compose -f $(PROD_COMPOSE) up --build
+
+prod-down:
+	docker compose -f $(PROD_COMPOSE) down
+
+prod-logs:
+	docker compose -f $(PROD_COMPOSE) logs -f
+
+# ========================
+# Helpers
+# ========================
+# Stop all environments
+down-all:
+	docker compose -f $(DEV_COMPOSE) down || true
+	docker compose -f $(STAGING_COMPOSE) down || true
+	docker compose -f $(PROD_COMPOSE) down || true
+
+# Show all running containers
+ps:
+	docker ps
