@@ -6,7 +6,8 @@ services:
       context: ./server
       target: prod
     container_name: node-server-staging
-    env_file: .env.staging
+    env_file: 
+      - ./server/.env.staging
     networks:
       - app-network
 
@@ -15,6 +16,8 @@ services:
       context: ./admin-panel
       target: prod
     container_name: admin-staging
+    env_file:
+      - ./admin-pane/.env.staging
     networks:
       - app-network
 
@@ -23,6 +26,8 @@ services:
       context: ./client
       target: prod
     container_name: frontend-staging
+    env_file:
+      - ./client/.env.staging
     networks:
       - app-network
 
