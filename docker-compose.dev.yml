@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  server:
+    build:
+      context: ./server
+      target: dev
+    container_name: node-server
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  admin-panel:
+    build:
+      context: ./admin-panel
+      target: dev
+    container_name: admin-panel
+    volumes:
+      - ./admin-panel:/app
+      - /app/node_modules
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./client
+      target: dev
+    container_name: pm-client
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

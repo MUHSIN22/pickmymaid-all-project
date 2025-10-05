@@ -1,0 +1,31 @@
+global
+    log stdout format raw daemon
+    maxconn 2000
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    timeout connect 5s
+    timeout client  60s
+    timeout server  60s
+
+frontend fe_https
+    bind *:443 ssl crt /usr/local/etc/haproxy/certs/fullchain.pem
+
+    acl host_frontend hdr(host) -i staging.pickmymaid.com
+    acl host_admin hdr(host) -i staging.admin.pickmymaid.com
+    acl host_api hdr(host) -i staging.api.pickmymaid.com
+
+    use_backend be_frontend if host_frontend
+    use_backend be_admin if host_admin
+    use_backend be_server if host_api
+
+backend be_frontend
+    server frontend-staging frontend-staging:3000 check
+
+backend be_admin
+    server admin-staging admin-staging:80 check
+
+backend be_server
+    server server-staging node-server-staging:8080 check

@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  server-prod:
+    build: ./server
+    target: prod
+    container_name: node-server-prod
+    env_file: .env.prod
+    networks:
+      - app-network
+
+  admin-prod:
+    build: ./admin-panel
+    target: prod
+    container_name: admin-prod
+    networks:
+      - app-network
+
+  frontend-prod:
+    build: ./client
+    target: prod
+    container_name: frontend-prod
+    networks:
+      - app-network
+
+  haproxy-prod:
+    image: haproxy:2.8-alpine
+    container_name: haproxy-prod
+    ports:
+      - "443:443"   # production HTTPS
+    volumes:
+      - ./haproxy/haproxy.cfg.prod:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./haproxy/certs:/usr/local/etc/haproxy/certs:ro
+    depends_on:
+      - frontend-prod
+      - admin-prod
+      - server-prod
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

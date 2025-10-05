@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  server-staging:
+    build: ./server
+    target: prod
+    container_name: node-server-staging
+    env_file: .env.staging
+    networks:
+      - app-network
+
+  admin-staging:
+    build: ./admin-panel
+    target: prod
+    container_name: admin-staging
+    networks:
+      - app-network
+
+  frontend-staging:
+    build: ./client
+    target: prod
+    container_name: frontend-staging
+    networks:
+      - app-network
+
+  haproxy-staging:
+    image: haproxy:2.8-alpine
+    container_name: haproxy-staging
+    ports:
+      - "8443:443"   # staging mapped to 8443 on host
+    volumes:
+      - ./haproxy/haproxy.cfg.staging:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./haproxy/certs:/usr/local/etc/haproxy/certs:ro
+    depends_on:
+      - frontend-staging
+      - admin-staging
+      - server-staging
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
