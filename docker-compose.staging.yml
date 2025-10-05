@@ -33,7 +33,6 @@ services:
       - "8443:443"   # staging mapped to 8443 on host
     volumes:
       - ./haproxy/haproxy.cfg.staging:/usr/local/etc/haproxy/haproxy.cfg:ro
-      - ./haproxy/certs:/usr/local/etc/haproxy/certs:ro
     depends_on:
       - frontend-staging
       - admin-staging
