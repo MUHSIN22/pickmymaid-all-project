@@ -43,7 +43,7 @@ services:
     ports:
       - "8443:443"   # staging mapped to 8443 on host
     volumes:
-      - ./haproxy/haproxy.cfg.staging:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./haproxy.cfg.staging:/usr/local/etc/haproxy/haproxy.cfg:ro
     command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-db"]
     depends_on:
       - frontend-staging
