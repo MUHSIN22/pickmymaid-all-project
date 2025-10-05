@@ -6,6 +6,8 @@ services:
       context: ./server
       target: dev
     container_name: node-server
+    env_file: 
+      - ./server/.env.dev
     volumes:
       - ./server:/app
       - /app/node_modules
@@ -19,6 +21,8 @@ services:
       context: ./admin-panel
       target: dev
     container_name: admin-panel
+    env_file: 
+      - ./admin-panel/.env.dev
     volumes:
       - ./admin-panel:/app
       - /app/node_modules
@@ -36,6 +40,8 @@ services:
       context: ./client
       target: dev
     container_name: pm-client
+    env_file: 
+      - ./client/.env.dev
     volumes:
       - ./client:/app
       - /app/node_modules

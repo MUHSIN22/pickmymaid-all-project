@@ -11,7 +11,7 @@ defaults
     timeout server  60s
 
 frontend fe_https
-    bind *:443 ssl crt /usr/local/etc/haproxy/certs/fullchain.pem
+    bind *:443
 
     acl host_frontend hdr(host) -i pickmymaid.com
     acl host_admin hdr(host) -i admin.pickmymaid.com
