@@ -20,6 +20,7 @@ CMD ["npm", "run", "dev"]
 FROM base AS build
 RUN npm ci
 COPY . .
+COPY .env.staging .
 RUN npm run build
 
 # =======================
