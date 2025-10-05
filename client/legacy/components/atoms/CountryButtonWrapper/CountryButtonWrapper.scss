@@ -1,0 +1,29 @@
+@import "../../../styles/config/variables";
+
+.country-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+  padding: $spacing-sm;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+
+  &.gray-bg {
+    background-color: $soft-gray;
+  }
+
+  &.white-bg {
+    background-color: $white;
+  }
+
+  justify-content: center;
+
+  @media (min-width: $breakpoint-xl) {
+    justify-content: space-between;
+  }
+}

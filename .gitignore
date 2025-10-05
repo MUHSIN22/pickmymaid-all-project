@@ -1,0 +1,23 @@
+# Node / JS
+server/node_modules/
+client/node_modules/
+admin-panel/node_modules/
+server/.env.*
+client/.env.*
+admin-panel/.env.*
+*.log
+.env
+.env.* 
+
+# Build / output
+client/.next/
+admin-panel/dist/
+server/dist/
+
+# Docker
+*.env
+docker-compose.override.yml
+
+# OS
+.DS_Store
+Thumbs.db

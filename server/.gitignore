@@ -1,0 +1,10 @@
+node_modules
+src/config/AuthKey.p8
+dist
+build
+.vscode
+public
+.env
+
+package-lock.json
+yarn.lock

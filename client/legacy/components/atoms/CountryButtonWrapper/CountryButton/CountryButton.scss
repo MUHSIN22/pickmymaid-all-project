@@ -1,0 +1,116 @@
+@import "../../../../styles/config/variables";
+
+.country-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $white;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  margin: 0 !important;
+  background-color: $white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  height: auto;
+  width: calc(50% - 0.5rem);
+  opacity: 1;
+
+  &:hover {
+    border: 2px solid $brand-primary-200;
+    background-color: $brand-primary-50;
+  }
+
+  &--gray-bg {
+    background-color: $soft-gray;
+  }
+
+  &--border-visible {
+    border: 1px solid $brand-primary-300;
+    width: 100%;
+  }
+
+  &--dull {
+    opacity: 0.5;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+
+    @media (min-width: $breakpoint-sm) {
+      gap: 0.5rem;
+    }
+  }
+
+  &__flag {
+    width: 2rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+    &--border-visible {
+      width: 1.5rem;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: $text-black-900;
+  }
+
+  &__country {
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+
+    @media (min-width: $breakpoint-sm) {
+      font-size: 1rem;
+    }
+
+    &--border-visible {
+      font-size: 0.8rem;
+
+      @media (min-width: $breakpoint-sm) {
+        font-size: 1rem;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  &__count {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+
+    @media (min-width: $breakpoint-sm) {
+      font-size: 1rem;
+    }
+
+    &--border-visible {
+      font-size: 0.8rem;
+
+      @media (min-width: $breakpoint-sm) {
+        font-size: 1rem;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    width: auto;
+    padding: 0.5rem 1.5rem;
+  }
+}

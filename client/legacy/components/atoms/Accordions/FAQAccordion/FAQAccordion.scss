@@ -1,0 +1,139 @@
+@import '../../../../styles/config/variables';
+
+.faq-accordion {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__item {
+    border-top: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: $spacing-md;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 111, 81, 0.05);
+    }
+
+    &--expanded {
+      background-color: transparent;
+    }
+  }
+
+  &__question {
+    flex: 1;
+    text-align: left;
+    font-weight: 500;
+    color: $text-black-700;
+    @include responsive-font(0.9rem, 1rem, 1.3rem);
+    margin: 0;
+  }
+
+  &__icon {
+    color: $brand-primary-300;
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: $spacing-md;
+  }
+
+  &__panel {
+    padding: 0 $spacing-md $spacing-md $spacing-md;
+    overflow: hidden;
+    
+    &--expanded {
+      animation: slideDown 0.3s ease-out;
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    &--collapsed {
+      animation: slideUp 0.3s ease-out;
+      max-height: 0;
+      opacity: 0;
+      padding: 0 $spacing-md;
+    }
+  }
+
+  &__answer {
+    color: $text-black-600;
+    @include responsive-font(0.8rem, 0.9rem, 1rem);
+    line-height: 1.6;
+    margin-bottom: $spacing-md;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    align-items: flex-start;
+    padding-top: $spacing-md;
+
+    ul {
+      list-style: disc;
+      padding-left: $spacing-lg;
+      margin: 0;
+
+      li {
+        margin-bottom: $spacing-xs;
+        
+        a {
+          color: #0066cc;
+          text-decoration: underline;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: $brand-primary-300;
+          }
+        }
+      }
+    }
+  }
+
+  &__answer2 {
+    color: $text-black-600;
+    @include responsive-font(0.8rem, 0.9rem, 1rem);
+    line-height: 1.6;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

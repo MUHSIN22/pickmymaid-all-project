@@ -1,0 +1,55 @@
+// Pagination.scss
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.pagination-box {
+  display: flex;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.pagination-button {
+  width: 1.8rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-left: 1px solid #d0d5dd;
+
+  &:first-child {
+    border-left: none;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.pagination-page {
+  width: 1.8rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #d0d5dd;
+  font-size: 0.75rem;
+  color: #1d2939;
+  cursor: pointer;
+  background-color: #fff;
+
+  &.active {
+    background-color: #f9fafb;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.dots {
+    cursor: default;
+  }
+}

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.pickmymaid.com
+
+# Sitemaps
+Sitemap: https://www.pickmymaid.com/sitemap.xml

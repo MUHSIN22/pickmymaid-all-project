@@ -1,0 +1,17 @@
+.ql-toolbar.ql-snow {
+  border-radius: 5px 5px 0 0;
+  background: #cbd5e0;
+}
+
+.ql-container.ql-snow {
+  border-radius: 0 0 5px 5px;
+  height: 10rem;
+  font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .ql-container.ql-snow {
+    height: 7rem !important;
+    font-size: 0.88rem !important;
+  }
+}

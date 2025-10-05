@@ -1,0 +1,363 @@
+{
+  "top_nav": {
+    "home": "Home",
+    "search": "Search Maid/Nanny",
+    "pricing": "Pricing",
+    "works": "How it works",
+    "about": "About Us",
+    "find_job": "Find a job",
+    "contact": "Contact Us",
+    "favorites": "Favorites"
+  },
+  "footer": {
+    "description": "Pickmymaid is the #1 maid platform in UAE. Access the best profiles with comprehensive information, including recommendations, to find your ideal nanny or maid. Connect directly with them, eliminating costly agency fees and saving thousands of dirhams.",
+    "title": {
+      "support": "Support",
+      "quickLinks": "Quick Links"
+    },
+    "supportLinks": {
+      "findJob": "Find Jobs",
+      "home": "Home",
+      "findWorkers": "Find Workers",
+      "contactUs": "Contact Us",
+      "termsAndConditions": "Terms and conditions",
+      "privacyPolicy": "Privacy Policy",
+      "blogs": "Blogs",
+      "hiringTips": "Hiring Tips",
+      "pressAppearance": "Press Appearance"
+    }
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signInTitle": "Sign In To Your Account",
+    "forgetPasswordQuestion": "Did you forget your password?",
+    "noAccount": "Don't have an account?",
+    "forgetPassTitle": "Forgot Password?",
+    "forgetDescription": "No worries! We will send a password reset instruction to your email.",
+    "rememberPassword": "Remember password? Login",
+    "registerTitle": "Register your account",
+    "registerHeading": "Register and find the services you are looking for",
+    "alreadyHave": "Already have an account?"
+  },
+  "common": {
+    "selectOption": "Select an option",
+    "professionals": "Professionals",
+    "whatsapp": "Phone",
+    "email": "Email",
+    "english": "English",
+    "arabic": "Arabic",
+    "register": "Register",
+    "sendLink": "Send reset link",
+    "message": "Message",
+    "callOrWhatsapp": "Call",
+    "location": "Location",
+    "pricingTitle": "Access Plans",
+    "pricingSubTitle": "One time payment with No hidden charges - No automatic renewals.",
+    "pricingDesc": "Choose a plan that fits your need",
+    "form": {
+      "password": "Password",
+      "fullname": "Full Name",
+      "phone": "Phone",
+      "confirmPassword": "Confirm Password"
+    },
+    "button": {
+      "login": "Login",
+      "signup": "Client Register",
+      "logout": "Logout",
+      "search": "Search",
+      "viewMore": "View all Maids/Nannies",
+      "getStarted": "Get Started",
+      "vmMaids": "View More Maids"
+    },
+    "categories": {
+      "maids": "Maids",
+      "nanny": "Nanny",
+      "caregiver": "Caregiver",
+      "private_nurse": "Private Nurse",
+      "private_tutor": "Private Tutor",
+      "driver": "Driver",
+      "postpartum_care": "Postpartum care",
+      "cook": "Cook"
+    },
+    "religion": {
+      "christian": "Christian",
+      "hinduism": "Hinduism",
+      "islam": "Islam",
+      "buddhist": "Buddhist",
+      "sikhism": "Sikhism"
+    },
+    "emirates": {
+      "abu_dhabi": "Abu Dhabi",
+      "dubai": "Dubai",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "umm_al_quwain": "Umm Al Quwain",
+      "ras_al_khaima": "Ras Al Khaima",
+      "fujairah": "Fujairah",
+      "al_ain": "Al Ain"
+    },
+    "countries": {
+      "filipino": "Filipino",
+      "indian": "Indian",
+      "nepali": "Nepali",
+      "sri_lankan": "Sri Lankan",
+      "indonesian": "Indonesian"
+    }
+  },
+  "home": {
+    "banner": {
+      "heading": "Are you looking for a Maid or Nanny in UAE?",
+      "subheading": "We will help you find the perfect match with a curated list of qualified and experienced maid and nannies available all over the UAE.",
+      "register": "Register now, and save additional charges that you spend on agencies.",
+      "plan": "Our plans start with just AED 350.",
+      "form": {
+        "find": "Find the",
+        "secondLine": "you need in 1 minute",
+        "where": "Where?",
+        "service": "Service?"
+      }
+    },
+    "featured": {
+      "heading": "Available Maids / Nannies in UAE"
+    },
+    "findProfile": {
+      "heading": "Find from",
+      "profileCount": " 900+ Profiles",
+      "subTitle": "We help you connect with families and domestic workers to find their needs.",
+      "profile": "Profile"
+    },
+    "working": {
+      "heading": "How it works",
+      "search": {
+        "title": "Search",
+        "description": "Browse through 900+ profiles of nannies and maids in the UAE, complete with detailed information, right here."
+      },
+      "register": {
+        "title": "Register to access details of available maids",
+        "description": "Get started with the interview process by selecting a package that grants you access to detailed information about the available maids."
+      },
+      "hire": {
+        "title": "Hire",
+        "description": "Communicate your requirements directly with the maid or nanny, come to a mutual agreement, and proceed to hire her for the position."
+      }
+    },
+    "trustAndSafety": {
+      "heading": "Trust and Safety",
+      "subHeading": "How our HR team verifying Maids and Nannies at Pickmymaid",
+      "description": "How our HR team Verifying Maids and Nannies at Pickmymaid, Our dedicated team works behind the scenes every day, uploading only genuine applicants to ensure the highest standards of Trust and Safety",
+      "bgChecks": "Background checks",
+      "docVerifications": "Document verification",
+      "identity": "⁠Identity confirmation",
+      "thorough": "⁠Thorough interviews",
+      "team": "⁠HR team upload sorted CV's"
+    },
+    "whyUAETrust": {
+      "heading": "Why UAE Families Trust Pickmymaid?",
+      "happy": "10k+ Happy Customers",
+      "happyDesc": "10k+ customers trust Pickmymaid for reliable maids and nannies in the UAE. We ensure quality, safety, and exceptional service.",
+      "unlimited": "Unlimited Maid & Nanny Options",
+      "unlimitedDesc": "Get unlimited maid and nanny services tailored to your needs. We provide trusted, qualified candidates with new verified CVs added daily.",
+      "newProfiles": "20+ New Profiles, Verified by HR Team",
+      "newProfilesDesc": "Our HR team interviews 20+ candidates daily, offering maids, nannies, cooks, caregivers, drivers, and nurses. Each profile is verified for authenticity and reliability.",
+      "trust": "Years of Trusted Service in UAE",
+      "trustDesc": "Proudly serving families across the UAE, we are the trusted choice for maids, nannies, and caregivers. Our commitment to quality builds lasting relationships."
+    },
+    "ultimateGuide": "The Ultimate Guide to Find a Maid or Nanny!",
+    "ultimateGuideDesc": "Explore our easy resources, including interview questions and tips, to help you find the perfect maid or nanny for your family. We've created a simple, step-by-step guide that covers everything from identifying your specific needs to checking references and qualifications. You'll find helpful advice on how to assess their experience, personality, and reliability. With our expert tips, you can confidently ask the right questions during interviews, ensuring you hire someone trustworthy and capable. Whether you need help with cleaning, childcare, or both, we'll help you make an informed decision and find the best fit for your home and family.",
+    "pricing": {
+      "headingHome": "Access Plans",
+      "subHeading": "One time payment with No hidden charges - No automatic renewals.",
+      "aed": "AED",
+      "special": {
+        "name": "Special Plan",
+        "price": "195"
+      },
+      "basic": {
+        "name": "Basic Plan",
+        "price": "350"
+      },
+      "standard": {
+        "name": "Standard Plan",
+        "price": "495"
+      },
+      "premium": {
+        "name": "Premium Plan",
+        "price": "899"
+      },
+      "features": {
+        "accessOneMonth": "⁠Full access to all maids contact details, including phone numbers, Email and WhatsApp for one month",
+        "accessTwoMonth": "⁠Full access to all maids contact details, including phone numbers, Email and WhatsApp for 2 months",
+        "recieveProfile": "Receive 20+ new profiles every 24 hours, Verified by our HR team",
+        "personalSpace": "Personal space is provided to manage your shortlist effectively",
+        "dedicatedSupport": "Dedicated support from a consultant",
+        "paymentSupport": "Payment accepted via Visa, MasterCard, and Bank Transfer.",
+        "noHiddenCharge": "One-time payment with No Hidden charges or Automatic renewals."
+      }
+    },
+    "about": {
+      "heading": "About Us",
+      "sectionHeading": "Bringing Families and Reliable Domestic Helpers Together: Your One-Stop Maid and Nanny Finder Platform!",
+      "sectionDescription": "Simplifying the quest for reliable household helpers and nannies. Your one-stop solution for a happy home and peace of mind. Connect with dedicated helpers worthy of your trust and value your needs."
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subHeading": "we help you connect with families and domestic workers to find their needs.",
+      "question1": {
+        "q": "How can I find a maid using Pickmymaid?",
+        "a": "Once you register with Pickmymaid( fee starting from 350AED), you have access to all their contact and details.The desired salary of each maid is mentioned on their profiles.You can call and interview them to discuss the conditions and salary to find the perfect maid you need.You can then hire her and sponsor her directly. Pickmymaid does not provide sponsorship but the platform facilitates the hiring process."
+      },
+      "question2": {
+        "q": "Does Pickmymaid verify the profiles that are posted?",
+        "a": "Yes, At Pickmymaid we take profile verification very seriously. All maids who register on our website undergo an interview and filtration process by our onboarding team. Even though we encourage you to re-check their information and ideally call their previous employer to know their feedback."
+      },
+      "question3": {
+        "q": "Is there any ongoing service or customer service available?",
+        "a": "If you are not satisfied with our service, you can easily contact us and our customer care agent will communicate with you."
+      },
+      "question4": {
+        "q": "What is the salary range for the maid?",
+        "a": "The monthly salary for maids on Pickmymaid ranges from 1200AED to 3500AED. The desired salary of each maid is mentioned on their profiles, allowing you to easily find a candidate within your budget."
+      },
+      "question5": {
+        "q": "Can I access the database without purchasing an access package?",
+        "a": "Yes, you can access all the listed maids as a website visitor. However, you will need to purchase an access package to complete the information and contact details of the listed maids. By unlocking the access package you will get the complete information and contact details of the maid, which help you to make direct inquiries and find the right fit for you."
+      },
+      "question6": {
+        "q": "Are the maids sponsored/ have their visas?",
+        "a": "Pickmymaid is not an agency and we do not sponsor the maids or nannies. Sponsorship must be taken by the employer. It is the employer's responsibility to sponsor and arrange the necessary visa for the maids. We support you to navigate the hiring process effectively."
+      },
+      "question7": {
+        "q": "Do you have full-time maids or part-time maids?",
+        "a": "We maintain the profiles of both full-time maids for live-in arrangements and part-time maids who are available on a flexible basis. We have a wide range of options, including Indian maids, Filipino maids, Indonesian maids, and many more. Our part-time maids are available for monthly, weekly, and hourly services providing the flexibility you require for domestic help.."
+      },
+      "question8": {
+        "q": "What are the regions of UAE where you provide nanny services?",
+        "a": "We provide nanny services across all seven emirates of the United Arab Emirates (UAE). Our coverage includes:",
+        "a2": "Whether you reside in the vibrant city of Dubai, the capital city of Abu Dhabi, or any other emirate in the UAE, PickMyMaid is dedicated to offering reliable and professional nanny services to meet your family's needs. If you have any questions regarding our service coverage or need assistance in selecting the right nanny for your requirements, please don't hesitate to reach out to us."
+      },
+      "question9": {
+        "q": "What are the regions of UAE where you provide maid services?",
+        "a": "We provide maid services across all seven emirates of the United Arab Emirates (UAE). Our coverage includes:",
+        "a2": "Whether you reside in the bustling city of Dubai, the serene coastal areas of Fujairah, or any other emirate in the UAE, PickMyMaid is committed to offering reliable and professional maid services to meet your household needs. If you have any inquiries regarding our service coverage or need assistance in selecting the right maid for your requirements, please feel free to contact us."
+      }
+    },
+    "CTA": {
+      "heading": "Unlock the power of expert Maid care - simplify your life with ease",
+      "subHeading": "Transform your Maid search today - our innovative platform makes finding the perfect caregiver easy and hassle-free!"
+    }
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subTitle": "Have an inquiry or some feedback for us? Fill out the form below to contact our team"
+  },
+  "about": {
+    "banner": {
+      "heading": "About Us",
+      "description": "Find the perfect maids and nannies you want to hire. We will make it easier. Our commitment is to provide reliable, efficient, and personalized service, ensuring the safety and satisfaction of both families and household helpers."
+    },
+    "mission": {
+      "heading": "Our Mission and Values",
+      "description": "Our mission is to present a reliable and efficient platform for UAE families to find trusted and skilled maids and nannies. Our values center around integrity, professionalism, and transparency. We prioritize the safety and well-being of families through rigorous screening and background checks. We foster strong relationships built on trust and respect between families and helpers. We aim to make a positive impact on households by facilitating long-lasting matches that contribute to harmonious and nurturing environments for both families and household helpers."
+    },
+    "team": {
+      "heading": "Our Team & what we do",
+      "description": "We connect UAE families with trusted maids and nannies. We function collaboratively with a community of experienced and skilled caregivers and household helpers.\n        With years of industry experience, we understand every family's unique needs and expectations. We minimize your efforts and let you find qualified and pre-screened candidates.\n        Our team ensures that all helpers have undergone thorough background checks, prioritizing trust. With personalized service and a commitment to excellence, we find you the perfect household helper, making your life easier and more enjoyable.\n        Our platform is SHAMS registered and allows nannies and maids to register in our database. We select them and add their profiles to our website after accurate filtering. Families who are looking for trustworthy and caring maid service can browse our database and find suitable matches according to availability, location, monthly pay, etc. We follow all the newest rules and regulations for hiring nannies and maids in the UAE. However, we don't directly handle their hiring and sponsorship. If necessary, we can provide you with contact information for companies we have worked with that can assist you in that process."
+    }
+  },
+  "searchmaid": {
+    "banner": {
+      "heading": "All Maids/Nannies are in The UAE Now",
+      "all": "All",
+      "profiles": "profiles for",
+      "name": {
+        "india": "Indian",
+        "philippines": "Filipino",
+        "nepal": "Nepali",
+        "srilanka": "Sri Lankan",
+        "indonesia": "Indonesian"
+      },
+      "description": {
+        "india": "Looking for an Indian maid? Choose pickmymaid, your perfect destination. Embrace the diversity of Indian culture, enriched by various groups across the country. Experience the positive energy, beautiful traditions, and genuine care that unites them. Find a reliable and caring maid or nanny who will provide great support at home, whether for kids or elderly family members. Indian maids are renowned for their hard work and cheerful demeanor. And dont miss out on learning incredible recipes from the delightful Indian cuisine.",
+        "philippines": "At PickMyMaid, we take pride in connecting families with experienced Filipino maids who possess a wealth of knowledge in household management. Our Filipino maids excel in creating a clean and organized living environment, handling meal preparation, and maintaining a hygienic space. Their warm and friendly behavior combined with their exceptional skills make them an invaluable asset to any household. Discover the perfect Filipino maid for your home with Pickmymaid.",
+        "nepal": "Pickmymaid offers skilled and dependable Nepali maids to cater to your household needs. Our Nepali maids are recognized for their hardworking nature, professionalism, and commitment to delivering exceptional service. With their meticulous approach and attention to detail, they ensure a clean, well-organized, and comfortable living space for you and your family. Trust Pickmymaid to connect you with a capable Nepali maid who will bring professionalism and reliability to your home.",
+        "srilanka": "Pickmymaid is your trusted source for connecting with dedicated Sri Lankan maids who excel in delivering top-quality service. Our Sri Lankan maids are known for their attention to detail, reliability, and ability to handle multiple tasks with ease. From general cleaning and laundry to assisting with daily household chores, they ensure a well-maintained and comfortable living environment. Count on Pickmymaid to match you with a competent and responsible Sri Lankan maid who will bring a sense of tranquility and order to your home",
+        "indonesia": "We understand the significance of finding a competent and trustworthy maid for your household. Thats why we specialize in connecting families with skilled Indonesian maids known for their reliability and expertise. Our Indonesian maids excel in managing various household tasks, including cleaning, cooking, and childcare. With their friendly and professional attitude, they create a comfortable and well-maintained home environment. Let Pickmymaid match you with a reliable Indonesian maid who will bring efficiency and peace of mind to your household.",
+        "forAll": "Are you in need of reliable and skilled domestic help within the country? Look no further than Pickmymaid! We are proud to offer a diverse selection of Indian, Filipino, Nepali, Indonesian, and Sri Lankan maids and nannies. Whether you require assistance with housekeeping, childcare, or other domestic services, we have the perfect solution for you. Our team at Pickmymaid is dedicated to ensuring that you find the ideal match to meet your specific needs. With our professionals, you can rest assured that you will receive top-quality care and trustworthy service. Experience the peace of mind that comes with having capable and experienced individuals looking after your home and loved ones. Choose Pickmymaid today and enjoy the convenience and reliability of our professional domestic services."
+      }
+    },
+    "middle": {
+      "result": "result",
+      "found": "Found",
+      "text": "according to your requirement"
+    },
+    "filter": {
+      "Philippines": "Philippines",
+      "India": "India",
+      "Nepal": "Nepal",
+      "Indonesia": "Indonesia",
+      "Bangladesh": "Bangladesh",
+      "Pakistan": "Pakistan",
+      "Myanmar": "Myanmar",
+      "Bhutan": "Bhutan",
+      "Srilanka": "Sri Lanka",
+      "Ethiopia": "Ethiopia",
+      "Kenya": "Kenya",
+      "Nigeria": "Nigeria",
+      "Ghana": "Ghana",
+      "Cameroon": "Cameroon",
+      "Zimbabwe": "Zimbabwe",
+      "Eritrea": "Eritrea",
+      "Uganda": "Uganda",
+      "Live In": "Live In",
+      "Live Out": "Live Out",
+      "Live In And Live Out": "Live In And Live Out",
+      "Abu Dhabi": "Abu Dhabi",
+      "Dubai": "Dubai",
+      "Sharjah": "Sharjah",
+      "Ajman": "Ajman",
+      "Umm Al Quwain": "Umm Al Quwain",
+      "Ras Al Khaimah": "Ras Al Khaimah",
+      "Fujairah": "Fujairah",
+      "Al Ain": "Al Ain",
+      "Hired": "Hired",
+      "Not Hired": "Not Hired",
+      "Newborn Care": "Newborn Care",
+      "Child Care": "Child Care",
+      "Cooking": "Cooking",
+      "Assisting in Kitchen": "Assisting in Kitchen",
+      "Private Tutor": "Private Tutor",
+      "Private Nurse": "Private Nurse",
+      "Elderly Care": "Elderly Care",
+      "Caregiver": "Caregiver",
+      "Postpartum Care": "Postpartum Care",
+      "Private Driver": "Private Driver",
+      "Pet Care": "Pet Care",
+      "Gardening": "Gardening",
+      "Position": "Position",
+      "Location": "Location",
+      "Availability": "Availability",
+      "Skill level": "Skill level",
+      "Age": "Age",
+      "Salary": "Salary",
+      "Nationality": "Nationality",
+      "filter": "Filter",
+      "apply": "Apply",
+      "sortby": "Sort",
+      "clear": "Clear",
+      "sortAvailability": "Availabilty",
+      "sortLocation": "Location",
+      "sortPosition": "Position",
+      "sortSalaryLow": "Salary low to high",
+      "sortSalaryHigh": "Salary high to low",
+      "visitVisa": "Visit Visa",
+      "employementVisa": "Employement Visa",
+      "ownVisa": "Own Visa",
+      "husbandVisa": "Husband Visa",
+      "cancelledVisa": "Cancelled Visa",
+      "visaStatus": "Visa Status",
+      "toBeCancel": "To Be Cancel Visa",
+      "category": "Category",
+      "religion": "Religion"
+    }
+  }
+}

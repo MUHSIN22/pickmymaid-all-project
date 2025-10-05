@@ -1,0 +1,25 @@
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-weight: 500;
+  font-size: 17px;
+  margin-top: 1rem;
+}
+
+.blog-content ol,
+.blog-content ul {
+  padding-left: 1rem;
+}
+
+.blog-content a{
+  color: #FF8F5F;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 500px) {
+  .blog-content {
+    font-size: 14px;
+    gap: 0.4;
+  }
+}

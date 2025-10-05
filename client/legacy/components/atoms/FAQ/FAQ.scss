@@ -1,0 +1,44 @@
+@import '../../../styles/config/variables';
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 0 $spacing-lg;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 $spacing-xl;
+  }
+
+  @media (min-width: $breakpoint-2xl) {
+    padding: 0 8rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+
+    @media (min-width: $breakpoint-md) {
+      margin-bottom: $spacing-4xl;
+    }
+  }
+
+  &__title {
+    color: $text-black-700;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: $spacing-md;
+    @include responsive-font(1.4rem, 2rem, 2.6rem);
+  }
+
+  &__subtitle {
+    color: $text-black-600;
+    @include responsive-font(0.8rem, 0.9rem, 1rem);
+  }
+}
