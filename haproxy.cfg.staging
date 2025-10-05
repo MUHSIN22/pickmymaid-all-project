@@ -11,7 +11,7 @@ defaults
     timeout server  60s
 
 frontend fe_https
-    bind *:443
+    bind *:80
 
     acl host_frontend hdr(host) -i staging.pickmymaid.com
     acl host_admin hdr(host) -i stagingadmin.pickmymaid.com

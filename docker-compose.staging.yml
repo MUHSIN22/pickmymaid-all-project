@@ -41,7 +41,7 @@ services:
     image: haproxy:2.8-alpine
     container_name: haproxy-staging
     ports:
-      - "8443:443"   # staging mapped to 8443 on host
+      - "8443:80"   # staging mapped to 8443 on host
     volumes:
       - ./haproxy.cfg.staging:/usr/local/etc/haproxy/haproxy.cfg:ro
     command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-db"]
