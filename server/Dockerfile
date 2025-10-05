@@ -35,4 +35,4 @@ EXPOSE 8080
 
 # Use pm2-runtime to run your TS backend in production
 # Logs are sent to stdout/stderr for Docker
-CMD ["npx", "ts-node", "src/server.ts"]
+CMD ["npx", "ts-node", "--transpile-only", "src/server.ts"]
