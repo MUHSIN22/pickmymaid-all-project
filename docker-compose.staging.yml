@@ -25,6 +25,8 @@ services:
     build: 
       context: ./client
       target: prod
+      args:
+        NEXT_PUBLIC_API_URL: https://stagingapi.pickmymaid.com/
     container_name: frontend-staging
     env_file:
       - ./client/.env.staging

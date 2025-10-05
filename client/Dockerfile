@@ -18,6 +18,10 @@ CMD ["npm", "run", "dev"]
 # Build Stage
 # =======================
 FROM base AS build
+# Accept environment variable for build
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 RUN npm ci
 COPY . .
 COPY .env.staging .
