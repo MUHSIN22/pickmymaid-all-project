@@ -9,16 +9,19 @@ import { axiosInstance } from "@/lib/axiosInstance";
 import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
 import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper";
 import { cache } from "react";
+import axios from "axios";
 
 export const revalidate = 60;
 
 const getCounts = cache(async () => {
-  const res = await axiosInstance.get("job/counts");
+  const res = await axios.get(`${process.env.NEXT_TEMP_API_URL}job/counts`);
   return res.data.message;
 });
 
 const getFeaturedMaids = cache(async () => {
-  const res = await axiosInstance.get(`job/featured?from=${null}`);
+  const res = await axios.get(
+    `${process.env.NEXT_TEMP_API_URL}job/featured?from=${null}`
+  );
   return res.data.data;
 });
 
