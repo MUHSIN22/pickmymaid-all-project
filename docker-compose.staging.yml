@@ -26,7 +26,8 @@ services:
       context: ./client
       target: prod
       args:
-        NEXT_PUBLIC_API_URL: https://stagingapi.pickmymaid.com/
+        NEXT_PUBLIC_API_URL: https://stagingapi.pickmymaid.com:8443/api/
+        NEXT_TEMP_API_URL: http://server-staging:8080/api/
         NEXT_PUBLIC_DISABLE_API_DURING_BUILD: true
     container_name: frontend-staging
     env_file:
