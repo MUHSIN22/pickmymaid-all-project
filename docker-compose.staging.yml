@@ -27,9 +27,12 @@ services:
       target: prod
       args:
         NEXT_PUBLIC_API_URL: https://stagingapi.pickmymaid.com/
+        NEXT_PUBLIC_DISABLE_API_DURING_BUILD: true
     container_name: frontend-staging
     env_file:
       - ./client/.env.staging
+    depends_on:
+      - server-staging
     networks:
       - app-network
 
