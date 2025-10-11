@@ -18,7 +18,7 @@ const getCounts = cache(async () => {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}job/counts`);
     return res.data.message;
   } catch (error) {
-    console.error(error);
+    console.error(error, 'Build Error');
     return [];
   }
 });
@@ -30,7 +30,7 @@ const getFeaturedMaids = cache(async () => {
     );
     return res.data.data;
   } catch (error) {
-    console.error(error);
+    console.error(error, 'Build Error');
     return [];
   }
 });
