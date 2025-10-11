@@ -15,6 +15,7 @@ export const generatePaymentLink = createAsyncThunk<string, number>("payment/gen
     } = await axiosInstanceV2.post("payment/create-payment", { type });
     return paymentURL as string;
   } catch (_: any) {
+    console.error(_)
     return rejectWithValue({
       message: "Something went wrong, Please try again!",
     });
@@ -71,6 +72,7 @@ export const getUserPaymentDetails = createAsyncThunk<IPaymentStatusReturn, unde
       } as IPaymentStatusReturn;
     }
   } catch (error: any) {
+    console.log(error)
     return rejectWithValue({
       message: "Something went wrong, Please contact our support team!",
     });

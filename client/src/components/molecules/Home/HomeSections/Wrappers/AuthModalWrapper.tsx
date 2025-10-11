@@ -12,7 +12,6 @@ import { useRouter } from "next/navigation";
 import useCustomToast from "@/lib/hooks/useCustomToast";
 import AuthModal from "@/components/atoms/AuthModal/AuthModal";
 import LoginForm from "@/components/atoms/Forms/Authentication/LoginForm/LoginForm";
-import RegisterForm from "@/components/atoms/Forms/Authentication/RegisterForm/RegisterForm";
 import ForgotPasswordForm from "@/components/atoms/Forms/Authentication/ForgotPasswordForm/ForgotPasswordForm";
 
 const AuthModalWrapper = () => {
@@ -63,9 +62,7 @@ const AuthModalWrapper = () => {
     <AuthModal isOpen={authModal !== null} onClose={handleModalClose}>
       {authModal === "login" || authModal === "login-form" ? (
         <LoginForm />
-      ) : authModal === "signup" ? (
-        <RegisterForm />
-      ) : authModal === "forget" ? (
+      ) : authModal === "signup" ? null : authModal === "forget" ? (
         <ForgotPasswordForm />
       ) : null}
     </AuthModal>

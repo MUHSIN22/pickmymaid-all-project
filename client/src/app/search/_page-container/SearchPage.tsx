@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 // import { Button, Drawer, DrawerContent, Flex, Menu, MenuButton, MenuItem, MenuList, Show, Text, useDisclosure } from "@chakra-ui/react";
@@ -66,7 +65,6 @@ const SearchMaid = () => {
                 dispatch(filterByLocationAndService({ location, service }));
             }
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [country, location, service, data]);
 
     const paginationHandler = (page: number) => {
@@ -89,7 +87,6 @@ const SearchMaid = () => {
         if (statusHeading?.current) {
             localStorage.setItem("cardTop", statusHeading?.current?.getBoundingClientRect()?.top.toString());
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [statusHeading?.current]);
 
     useEffect(() => {

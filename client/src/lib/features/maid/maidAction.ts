@@ -55,6 +55,7 @@ export const applyForJob = createAsyncThunk<IBasicStateStructure, { body: IJobAp
     const { data: response } = await axiosInstance.post("job/register", req.body);
     return { message: response.message } as IBasicStateStructure;
   } catch (error: any) {
+    console.error(error)
     return rejectWithValue({
       message: error.response.data.message,
     });
@@ -66,6 +67,7 @@ export const fetchMaidDataById = createAsyncThunk("manageMaid/fetchMaidDatabyId"
     const response = await axiosInstance.post(`/job/id`, { id });
     return response.data;
   } catch (error) {
+    console.error(error)
     throw new Error("Failed to fetch maid data");
   }
 });
@@ -82,6 +84,7 @@ export const fetchMaidCounts = createAsyncThunk("manage-maid/get-count", async (
       totalCounts: response.available_maids,
     } as IMaidCountType;
   } catch (error: any) {
+    console.error(error)
     return rejectWithValue({
       message: "Something went wrong",
     });

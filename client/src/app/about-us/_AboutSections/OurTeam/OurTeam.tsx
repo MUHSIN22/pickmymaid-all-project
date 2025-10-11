@@ -1,6 +1,5 @@
 import ImageSrc from '@/assets/images/About/our mission image.webp';
 import { getAlternativeText } from '@/utils/altSelector';
-import { useTranslation } from '@/lib/hooks/useTranslation';
 
 const OurTeam = () => {
   return (

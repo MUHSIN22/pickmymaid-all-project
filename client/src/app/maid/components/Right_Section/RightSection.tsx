@@ -9,7 +9,6 @@ import {
 } from "@/components/atoms/Icons/Icons";
 import PremiumButton from "@/components/atoms/PremiumButton/PremiumButton";
 import { axiosInstanceV2 } from "@/lib/axiosInstance";
-import { setAuthModal } from "@/lib/features/auth/authSlice";
 import { fetchMaidDataById } from "@/lib/features/maid/maidAction";
 import { addRedirection } from "@/lib/features/utilSlice/utileSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";

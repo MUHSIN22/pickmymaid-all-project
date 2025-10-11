@@ -6,7 +6,7 @@
 // import { VStack } from '@chakra-ui/react';
 // import Helmet from 'react-helmet'
 
-export default function MarketingSection({ category }: { category: string }) {
+export default function MarketingSection() {
   return (
     <>
       {/* <VStack gap={{ base: '20px', md: '100px' }}>

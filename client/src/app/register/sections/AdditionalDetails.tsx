@@ -19,7 +19,6 @@ export default function AdditionalDetails({
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm<IAdditionalDetails>({
     mode: "onChange",

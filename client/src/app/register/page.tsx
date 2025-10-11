@@ -15,7 +15,7 @@ import {
 import { registerUser } from "@/lib/features/auth/authAction";
 import { useRouter } from "next/navigation";
 
-export default function register() {
+export default function Register() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const redirection = useAppSelector((state) => state.utils.redirection);

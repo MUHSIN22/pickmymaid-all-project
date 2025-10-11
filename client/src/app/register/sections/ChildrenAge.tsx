@@ -1,4 +1,3 @@
-import { Baby } from "@/components/atoms/Icons/Icons";
 import React from "react";
 import RadioCard from "./ChildrenRadio";
 
@@ -63,6 +62,7 @@ export default function ChildrenAge({
             name={item.name}
             value={item.value}
             description={item.description}
+            key={item.id}
             onChange={handleRadioChange}
             checked={childrenAge === item.value}
           />

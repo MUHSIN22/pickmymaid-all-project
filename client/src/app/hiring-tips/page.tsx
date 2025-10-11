@@ -5,7 +5,6 @@ import bulb from "@/assets/images/Tips/bulb.webp";
 import HStack from "@/components/ui/HStack";
 import interviewTips from "@/assets/images/Tips/interview-tips.webp";
 import { questions, tips } from "./Tips.data";
-import InterviewQuestions from "@/components/atoms/InterviewQuestions/InterviewQuestions";
 import InterviewQuestionsWrapper from "@/components/atoms/InterviewQuestions/InterviewQuestionsWrapper";
 import InterviewProcessWrapper from "@/components/atoms/InterviewProcess/InterviewProcessWrapper";
 

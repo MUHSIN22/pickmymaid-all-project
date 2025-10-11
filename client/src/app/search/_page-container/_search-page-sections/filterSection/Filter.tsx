@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from "react";
 import { Filters, getIntialValue } from "./Filters.data";
 import { getAllFiltersByQuery, getAllQueriestoFilterState } from "./utils";

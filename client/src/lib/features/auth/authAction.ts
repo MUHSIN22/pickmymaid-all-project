@@ -7,7 +7,7 @@ import { IForgetPasswordForm } from "@/types/components/authenticationForm/authe
 /* This code exports a function called `registerUser` which is created using the `createAsyncThunk`
 function from the `@reduxjs/toolkit` library. This function is used to create an asynchronous action
 that can be dispatched to the Redux store. */
-export const registerUser = createAsyncThunk<IRegisterReturn, { body: IRegisterBodyState, redirection: string | null }>("auth/register-user", async (req, { rejectWithValue }) => {
+export const registerUser = createAsyncThunk<IRegisterReturn, { body: IRegisterBodyState, redirection?: string | null }>("auth/register-user", async (req, { rejectWithValue }) => {
   try {
     let endpoint = "auth/customer/register";
     if(req.redirection){
