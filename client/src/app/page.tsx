@@ -9,28 +9,25 @@ import { axiosInstance } from "@/lib/axiosInstance";
 import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
 import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper";
 import { cache } from "react";
-import axios from "axios";
 
 export const revalidate = 60;
 
 const getCounts = cache(async () => {
   try {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}job/counts`);
+    const res = await axiosInstance.get("job/counts");
     return res.data.message;
   } catch (error) {
-    console.error(error, 'Build Error');
+    console.error(error, "Build Error");
     return [];
   }
 });
 
 const getFeaturedMaids = cache(async () => {
   try {
-    const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}job/featured?from=${null}`
-    );
+    const res = await axiosInstance.get(`job/featured?from=${null}`);
     return res.data.data;
   } catch (error) {
-    console.error(error, 'Build Error');
+    console.error(error, "Build Error");
     return [];
   }
 });
