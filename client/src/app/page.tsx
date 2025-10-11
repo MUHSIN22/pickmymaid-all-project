@@ -11,19 +11,28 @@ import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper
 import { cache } from "react";
 import axios from "axios";
 
-export const dynamic = "force-dynamic";
 export const revalidate = 60;
 
 const getCounts = cache(async () => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}job/counts`);
-  return res.data.message;
+  try {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}job/counts`);
+    return res.data.message;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 });
 
 const getFeaturedMaids = cache(async () => {
-  const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}job/featured?from=${null}`
-  );
-  return res.data.data;
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}job/featured?from=${null}`
+    );
+    return res.data.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 });
 
 export default async function Home() {
