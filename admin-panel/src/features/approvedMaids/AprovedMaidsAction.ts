@@ -4,9 +4,9 @@ import { IApproveBody } from '../../types/features/approve.type';
 
 export const fetchApprovedMaids = createAsyncThunk(
   'approvedMaid/fetchData',
-  async () => {
+  async ({page, limit, search, filter}: any) => {
     try {
-      const response = await axiosInstance.get('/job/all');
+      const response = await axiosInstance.get(`/job/all?page=${page}&limit=${limit}` + (search && search !== "" ? `&search=${search}` : '' + (filter && filter !== "" && filter !== "none" ? `&filter=${filter}` : '')));
       return response.data;
     } catch (error) {
       throw new Error('Failed to fetch maid data');

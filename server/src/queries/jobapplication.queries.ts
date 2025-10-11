@@ -1,4 +1,4 @@
-import { paymentModel } from '../models/payment/payment.model';
+import { paymentModel } from './../models/payment/payment.model';
 import { jobApplicationModel } from '../models/jobApplication/jobApplication.model';
 import { jobModel } from '../models/Jobs/jobs.model';
 import { IJobApplicationCollection, IjobCollection } from '../types/dbStructureTypes';
@@ -35,13 +35,65 @@ export const getJobApplication = async (status: number) => {
   return result as unknown as IJobApplicationCollection;
 };
 
+export const getAlljobApplication = async (
+  page: number,
+  limit: number,
+  search?: string,
+  filterValue?: string
+): Promise<{ data: IJobApplicationCollection[]; count: number }> => {
+  page = page - 1
+  const filter: any = {};
 
+  if (search && search.trim() !== "") {
+    // Collapse multiple spaces in the search
+    const words = search.trim().split(/\s+/);
 
-export const getAlljobApplication = async () => {
-  return (await jobApplicationModel
-    .find({},{name: 1,email: 1, uae_no: 1, ref_number: 1, references:1, availability:1,status:1})
-    .sort({ date: -1, 'salary.from': 1 })) as unknown as IJobApplicationCollection;
+    // Each word must match either name or email
+    filter.$and = words.map((word) => {
+      const regex = new RegExp(word, "i"); // case-insensitive
+      return {
+        $or: [
+          { name: { $regex: regex } },
+          { email: { $regex: regex } },
+          { ref_number:  word },
+          { mobile: {$regex: regex}}
+        ],
+      };
+    });
+  }
+
+  if (!filter.$and && filterValue) filter.$and = [];
+
+  if(filterValue === "hired"){
+    filter.$and.push({
+      availability: false
+    })
+  }else if(filterValue === "unhired"){
+    filter.$and.push({
+      availability: true
+    })
+  }else if(filterValue === "approved"){
+    filter.$and.push({
+      status: 1
+    })
+  }else if(filterValue === "unapproved"){
+    filter.$and.push({status: {$ne: 1}})
+  }
+
+  const data:any = await jobApplicationModel
+    .find(
+      filter,
+      { name: 1, email: 1, uae_no: 1, ref_number: 1, references: 1, availability: 1, status: 1 }
+    )
+    .sort({ date: -1, "salary.from": 1 })
+    .limit(limit)
+    .skip(page * limit);
+
+  const count = await jobApplicationModel.countDocuments(filter);
+
+  return { data, count };
 };
+
 
 export const uploadMaidHistory = async (history: any) => {
   const maidHistory = new MaidHistory(history)

@@ -8,7 +8,18 @@ export type ICustomerRegisterBody = {
   type?: string;
   email?: string;
   password?: string;
-  confirm_password?: string
+  confirm_password?: string;
+  phone?: string;
+  emirate_of_residence: string;
+  position_required: string;
+  proposed_salary: string;
+  area: string;
+  number_of_family: string;
+  accomodation_type: string;
+  heared_from: string;
+  nationality_preference: string;
+  additional_requirement: string;
+  child_category: string;
 }
 
 // Declare the type of body of customer login form

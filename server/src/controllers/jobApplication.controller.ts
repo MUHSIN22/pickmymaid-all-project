@@ -71,11 +71,13 @@ export const getJobApplicationFormController = (req: Request, res: Response) => 
 
 export const getAllJobApplicationFormController = (req: Request, res: Response) => {
   try {
-  
-    getAllJobApplicationFormService()
+    const page = parseInt(req.query.page as string) || 0;
+    const limit = parseInt(req.query.limit as string) || 30;
+    const search = req.query.search as string;
+    const filter = req.query.filter as string;
+    getAllJobApplicationFormService(page, limit, search, filter)
       .then((data: any) => {
-    
-        responseHandler(res, 'OK', { jobApplication: data });
+        responseHandler(res, 'OK', { jobApplication: data.data, count: data.count });
       })
       .catch((error: any) => {
         logErrorWithSource(error, {meta: {body: req}})

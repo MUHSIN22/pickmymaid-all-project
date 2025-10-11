@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { responseHandler } from "../utils/responseHandler/responseHandler";
 import { IAdminLoginBody, IAdminRegisterBody, ICustomerForgetPassBody, ICustomerLoginBody, ICustomerRegisterBody } from "../types/requestBody.types";
 import { IAdminCollection, ICustomerCollection } from "../types/dbStructureTypes";
-import { createAdmin, createCustomer, getAdminWithEmail, getAdminWithID, getCustomerWithEmail, updateCustomerPasswordToken, updateCustomerPasswordWithEmail } from "../queries/user.queries";
+import { addCustomerPreference, createAdmin, createCustomer, getAdminWithEmail, getAdminWithID, getCustomerWithEmail, updateCustomerPasswordToken, updateCustomerPasswordWithEmail } from "../queries/user.queries";
 import messages from "../utils/constants/messages";
 import { passwordToHash } from "../utils/passwordToHash/passwordToHash";
 import { passwordValidator } from "../utils/passwordValidator/passwordValidator";
@@ -37,11 +37,15 @@ export const createCustomerService = (user: ICustomerRegisterBody) => {
         return reject(messages.error.USER_ALREADY_EXIST)
       }
       user.password = await passwordToHash(user.password as string);
+      const userId = createUserID(user.first_name as string);
       let insert = await createCustomer({
         ...user,
         type: 'email',
-        user_id: createUserID(user.first_name as string)
+        user_id: userId
       });
+
+
+      await addCustomerPreference({...user, user_id: userId})
       return resolve({
         message: messages.success.ACCOUNT_CREATED,
         user: {
@@ -129,23 +133,23 @@ export const customerForgetPasswordService = (email: string) => {
       let block: boolean = false;
       const user: ICustomerCollection = await getCustomerWithEmail(email);
       if (user) {
-        if (user.reset_token) {
-          await validateJwtToken(user.reset_token).then(async (_) => {
-            block = true;
-            await updateCustomerPasswordToken(email, null);
-            return reject({
-              message: 'Reset password link is already sent! Please try again after 10 mins'
-            })
-          }).catch((error: any) => {
-            console.error(error)
-          })
-        }
+        // if (user.reset_token) {
+        //   await validateJwtToken(user.reset_token).then(async (_) => {
+        //     block = true;
+        //     await updateCustomerPasswordToken(email, null);
+        //     return reject({
+        //       message: 'Reset password link is already sent! Please try again after 10 mins'
+        //     })
+        //   }).catch((error: any) => {
+        //     console.error(error)
+        //   })
+        // }
 
         if (!block) {
           const token = await generateJWT({ email }, '600000')
           await updateCustomerPasswordToken(email, token);
 
-          sendMail(email, 'Reset Password', forgetPasswordTemplate(user.first_name as string,`https://www.pickmymaid.com/reset-password/${base64url.encode(token)}`))
+          sendSesEmailWithAttachment(email, 'Reset Your Pickmymaid Password', forgetPasswordTemplate(user.first_name as string,`https://www.pickmymaid.com/reset-password/${base64url.encode(token)}`), '', [])
           return resolve({
             message: 'Reset link sent to email'
           })

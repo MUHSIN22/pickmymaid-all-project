@@ -34,21 +34,14 @@ console.log({clientId:process.env.GOOGLE_CLIENT_ID , clientSecret: process.env.G
 passport.use( new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID!,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    callbackURL: 'https://api.pickmymaid.com/api/v2/auth/google/redirect',
+    callbackURL: `${process.env.BASE_API_URL}/api/v2/auth/google/redirect`,
     userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo'
 }, async (accessToken: string, refreshToken: string, profile: Profile, done) => {
     let user:any = await getCustomerWithEmailOrAccountId(profile.id,profile?._json?.email as string)
 
     if(!user){
-        user = await createCustomer({
-            account_id: profile?.id as string,
-            first_name: (profile?._json?.name as string),
-            profile: (profile?._json?.profile as string),
-            type: "google",
-            user_id: createUserID(profile?._json?.name as string),
-            email: (profile?._json?.email as string)
-        })
-    }else if(!user?.account_id){
+        return done(null, false as any, {message: "User account doesn't exist!"})
+    }else if(user && !user?.account_id){
         await updateUserInfo({
             account_id: profile?.id as string,
             email: profile?._json?.email as string,
@@ -78,7 +71,7 @@ passport.use( new GoogleStrategy({
 passport.use( new FacebookStrategy({
     clientID: process.env.FB_APP_ID!,
     clientSecret: process.env.FB_APP_SECRET!,
-    callbackURL: 'https://api.pickmymaid.com/api/v2/auth/facebook/redirect'
+    callbackURL: `${process.env.BASE_API_URL}/api/v2/auth/facebook/redirect`
 }, async (accessToken: string, refreshToken: string, profile: FBProfile, done) => {
     // let user:any = await getCustomerWithEmail(profile?._json?.email as string)
     console.log(profile, 'this is profile');
@@ -141,7 +134,7 @@ passport.use(new AppleStrategy({
     teamID: process.env.APPLE_TEAM_ID!,
     keyID: process.env.APPLE_KEY_ID!,
     privateKeyLocation: path.join(__dirname, "/AuthKey.p8"),
-    callbackURL: `https://api.pickmymaid.com/api/v2/auth/apple/redirect`, // Redirect URL
+    callbackURL: `${process.env.BASE_API_URL}/api/v2/auth/apple/redirect`, // Redirect URL
     scope: ['name', 'email'],
 }, async (req, accessToken, refreshToken, idToken, profile, done) => {
 
@@ -150,15 +143,8 @@ passport.use(new AppleStrategy({
     let user:any = await getCustomerWithEmailOrAccountId(decodedToken?.sub,decodedToken.email as string)
 
     if(!user){
-        user = await createCustomer({
-            account_id: decodedToken?.sub as string,
-            first_name: (decodedToken?.email?.split("@")?.[0] as string),
-            profile: ("" as string),
-            type: "apple",
-            user_id: createUserID(decodedToken?.email?.split("@")?.[0] as string),
-            email: (decodedToken?.email as string)
-        })
-    }else if(!user?.account_id){
+        return done(null, false as any, {message: "User account doesn't exist!"})
+    }else if(user && !user?.account_id){
         await updateUserInfo({
             email: decodedToken?.sub as string,
             account_id: decodedToken?.sub as string,

@@ -178,8 +178,6 @@ try{
 }catch (err:any) {
   next(err);
 }
-  
-
 });
-
+ 
 export const jobApplicationModel = mongoose.model('jobApplications', jobapplicationSchema);

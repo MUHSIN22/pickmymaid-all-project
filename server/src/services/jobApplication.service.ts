@@ -52,12 +52,11 @@ export const getJobApplicationFormService = () => {
   });
 };
 
-export const getAllJobApplicationFormService = () => {
+export const getAllJobApplicationFormService = (page: number, limit: number, search: string, filter?: string) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let data = await getAlljobApplication();
-      
-      return resolve(data);
+      let {data, count} = await getAlljobApplication(page, limit, search, filter);
+      return resolve({data, count});
     } catch (error: any) {
       
       return reject(error.message);

@@ -19,13 +19,15 @@ import './config/passport'
 
 const app: Application = express();
 
+const ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
+
 // Middlewarep
 app.use(logger('dev'));
 app.use(
   cookieSession({
     name: "session",
     keys: [process.env.COOKIE_KEY as any],
-    maxAge: 60 * 24 * 60 * 60 * 100
+    maxAge: ONE_YEAR
   })
 );
 

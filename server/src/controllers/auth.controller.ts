@@ -23,13 +23,14 @@ import { validateJwtToken } from "../utils/validateJWT/validateJWT";
  */
 export const createCustomerController = (req: Request, res: Response) => {
   const user: ICustomerRegisterBody = req.body;
-  
+  const redirection = req.query.redirection || ''
+  console.log(redirection,'this is redirection')
   createCustomerService(user).then((data: any) => {
     req.logIn(data.user,(err) => {
       if(err){
         responseHandler(res, 'INTERNAL_SERVER_ERROR', null, { err })
       }
-      responseHandler(res, 'CREATED', data.user, { message: data.message })
+      responseHandler(res, 'CREATED', data.user, { message: data.message, redirection })
     })
   }).catch(message => {
     responseHandler(res, 'BAD_REQUEST', null, { message })

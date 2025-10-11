@@ -1,4 +1,4 @@
-import { IPaymentBody, IPaymentTokenBody } from '../types/requestBody.types';
+import { IPaymentBody, IPaymentTokenBody } from './../types/requestBody.types';
 import { responseHandler } from '../utils/responseHandler/responseHandler';
 import { Request, Response } from 'express';
 import { generatePaymentTokenService, getPaymentsService, getUserPaymentDetails, manualVerifyPaymentService, verifyPaymentTokenService } from '../services/payment.service';

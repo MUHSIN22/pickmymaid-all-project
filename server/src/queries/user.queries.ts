@@ -1,10 +1,11 @@
 import { AdminModel } from "../models/users/admin.model";
 import { CustomerModel } from "../models/users/customer.model";
+import { CustomerPreferenceModel } from "../models/users/customerPreference.model";
 import { IAdminCollection, ICustomerCollection } from "../types/dbStructureTypes";
 import { IAdminRegisterBody, ICustomerRegisterBody } from "../types/requestBody.types";
 import { createUserID } from "../utils/createUserID/createUserID";
 
-export const createCustomer = async (body: ICustomerRegisterBody) => {
+export const createCustomer = async (body: any) => {
   const newUser = new CustomerModel({
     user_id: createUserID(body.first_name as string),
     ...body
@@ -12,7 +13,15 @@ export const createCustomer = async (body: ICustomerRegisterBody) => {
   return await newUser.save();
 }
 
-export const updateUserInfo = async(body: ICustomerRegisterBody) => {
+export const addCustomerPreference = async (data: any) => {
+  const preference = new CustomerPreferenceModel({
+    ...data
+  })
+
+  return await preference.save();
+}
+
+export const updateUserInfo = async(body: any) => {
   return await CustomerModel.updateOne({email: body.email}, {
     $set: {
       ...body

@@ -21,7 +21,6 @@ router.get('/google/redirect', passport.authenticate('google', {
 }), (req: any, res) => {
     if(req.user){
         const redirectUrl = req.session.redirectUrl || "https://pickmymaid.com"; // Retrieve the stored redirect URL
-        console.log(req.session.redirectUrl);
         delete req.session.redirectUrl; // Clean up the session data
         
         res.redirect(redirectUrl);
@@ -83,7 +82,7 @@ router.post('/local',(req,res,next) => {
         }else{
             req.logIn(user, (err) => {
                 if(err) responseHandler(res, 'INTERNAL_SERVER_ERROR', null, {message: 'Something went wrong!'})
-                responseHandler(res, 'OK', user, {message: "Logged in successfully!"})
+                responseHandler(res, 'OK', user, {message: "Logged in successfully!", redirect: req.query?.redirect})
             })
         }
     })(req,res,next)

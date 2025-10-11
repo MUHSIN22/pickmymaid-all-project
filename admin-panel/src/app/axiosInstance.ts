@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { validateAuthToken } from '../utils/validateJWT/validateJWT';
 
-const apiEndpoint:string = import.meta.env.VITE_API_URL;
-
 export const axiosInstance = axios.create({
-  baseURL: `${apiEndpoint}v1/`,
+  // baseURL: 'http://localhost:8080/api/v1/',
+  baseURL: 'https://api.pickmymaid.com/api/v1/',
   headers: {
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache'
@@ -12,7 +11,8 @@ export const axiosInstance = axios.create({
 });
 
 export const axiosInstanceV2 = axios.create({
-  baseURL: `${apiEndpoint}v2/`,
+  // baseURL: 'http://localhost:8080/api/v2/',
+  baseURL: 'https://api.pickmymaid.com/api/v2/',
   headers: {
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache'

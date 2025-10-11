@@ -1,4 +1,4 @@
-import { getCustomersController, getMaidHistory, teamMemberRoleChangeController, toggleUserBlockController, updateCustomerPasswordController, verifyCustomerPaymentController } from '../controllers/admin.controllers';
+import { getCustomersController, getMaidHistory, teamMemberRoleChangeController, toggleUserBlockController, updateCustomerPasswordController, verifyCustomerPaymentController } from './../controllers/admin.controllers';
 import express, { Router } from 'express';
 import { deleteTeamMemberController, getTeamMembersController } from '../controllers/admin.controllers';
 import { validateJwtToken } from '../middleware/jwtValidator';

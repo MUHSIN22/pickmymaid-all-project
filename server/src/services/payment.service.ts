@@ -1,4 +1,4 @@
-import { getPayments, getPaymentsByUserID, manualverifyToken, verifyToken } from '../queries/payment.queries';
+import { getPayments, getPaymentsByUserID, manualverifyToken, verifyToken } from './../queries/payment.queries';
 import { generateToken } from '../queries/payment.queries';
 import messages from '../utils/constants/messages';
 import jwt, { JwtPayload } from 'jsonwebtoken';

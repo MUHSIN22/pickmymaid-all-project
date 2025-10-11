@@ -10,7 +10,6 @@ import {
 } from '../../features/approvedMaids/AprovedMaidsAction';
 import {
   Box,
-  Center,
   Flex,
   HStack,
   Heading,
@@ -38,6 +37,9 @@ interface DataRow {
 const ApproovedMaids = () => {
   const navigation = useNavigate();
   const [data, setData] = useState<any[]>([]); // Update the type of 'data'
+  const [totalRows, setTotalRows] = useState<number>(0);
+  const [perPage, setPerPage] = useState<number>(10);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const dispatch = useAppDispatch();
   const success = useAppSelector((state) => state.approvedMaids.success);
   const error = useAppSelector((state) => state.approvedMaids.error);
@@ -121,22 +123,20 @@ const ApproovedMaids = () => {
     },
   ];
 
-  useEffect(() => {
-    if (searchField?.length > 0) {
-      console.log(jobData.jobApplication, 'this is job application');
-
-      const searchedData = jobData?.jobApplication?.filter(
-        (item: any) =>
-          item?.name?.includes(searchField) ||
-          item?.email?.includes(searchField) ||
-          item?.uae_no?.replace(/ /g, '').includes(searchField) ||
-          item.ref_number?.includes(searchField)
-      );
-      setData(searchedData);
-    } else {
-      setData(jobData?.jobApplication || []);
-    }
-  }, [searchField]);
+  // useEffect(() => {
+  //   if (searchField?.length > 0) {
+  //     const searchedData = jobData?.jobApplication?.filter(
+  //       (item: any) =>
+  //         item?.name?.includes(searchField) ||
+  //         item?.email?.includes(searchField) ||
+  //         item?.uae_no?.replace(/ /g, '').includes(searchField) ||
+  //         item.ref_number?.includes(searchField)
+  //     );
+  //     setData(searchedData);
+  //   } else {
+  //     setData(jobData?.jobApplication || []);
+  //   }
+  // }, [searchField]);
 
   const handleDeletion = () => {
     dispatch(deleteJobApplications({ id: delId }));
@@ -149,7 +149,6 @@ const ApproovedMaids = () => {
   ) => {
     // Update the 'status' property of the row
     let status = e.target.checked ? '1' : '0';
-    console.log(row.status);
     const updatedData = data.map((d) => {
       if (d === row) {
         switch (type) {
@@ -182,22 +181,60 @@ const ApproovedMaids = () => {
     setData(updatedData);
   };
 
+  const handleChangePage = async (page: number) => {
+    setCurrentPage(page);
+    setApiLoading(true);
+    await dispatch(fetchApprovedMaids({ page, limit: perPage, filter })); // no -1 here
+    setApiLoading(false);
+  };
+
+  const handleRowsPerPage = async (newPerPage: number, page: number) => {
+    setPerPage(newPerPage);
+    setCurrentPage(page);
+    setApiLoading(true);
+    await dispatch(fetchApprovedMaids({ page, limit: newPerPage, filter })); // no -1 here
+    setApiLoading(false);
+  };
+
+  const handleFilter = async (filter: any) => {
+    setApiLoading(true);
+    await dispatch(
+      fetchApprovedMaids({
+        page: currentPage,
+        limit: perPage,
+        search: searchField,
+        filter: filter,
+      })
+    );
+    setApiLoading(false);
+  };
+
   useEffect(() => {
     const callForMaids = async () => {
       setApiLoading(true);
-      await dispatch(fetchApprovedMaids());
+      await dispatch(
+        fetchApprovedMaids({
+          page: currentPage,
+          limit: perPage,
+          search: searchField,
+          filter,
+        })
+      );
       setApiLoading(false);
     };
     callForMaids();
-  }, []);
+  }, [currentPage, perPage, searchField]);
 
   useEffect(() => {
     setData(jobData?.jobApplication || []);
+    setTotalRows(jobData?.count || 0);
   }, [jobData]);
 
   const handleRowClicked = (row: DataRow) => {
     navigation(`/manage-maids?id=${row?._id}`);
   };
+  /* This `useEffect` hook is responsible for handling the side effects related to the deletion of a job
+application. Here's a breakdown of what it does: */
   useEffect(() => {
     if (delId) {
       if (error) {
@@ -205,45 +242,15 @@ const ApproovedMaids = () => {
       } else if (success) {
         toast('Success', message || 'success');
       }
-      dispatch(fetchApprovedMaids());
-      // dispatch(removeMaid(delId));
+      dispatch(
+        fetchApprovedMaids({ page: currentPage, limit: perPage, filter })
+      );
       setDelId('');
     }
   }, [success, error]);
 
   useEffect(() => {
-    switch (filter) {
-      case null:
-        setData(jobData?.jobApplication);
-        break;
-      case 'hired':
-        setData(() =>
-          jobData?.jobApplication?.filter((item: any) => !item.availability)
-        );
-        break;
-      case 'unhired':
-        setData(() =>
-          jobData?.jobApplication?.filter((item: any) => item.availability)
-        );
-        break;
-      case 'approved':
-        setData(() =>
-          jobData?.jobApplication?.filter((item: any) =>
-            [1, 2].includes(item.status)
-          )
-        );
-        break;
-      case 'unapproved':
-        setData(() =>
-          jobData?.jobApplication?.filter((item: any) =>
-            [0].includes(item.status)
-          )
-        );
-        break;
-      default:
-        setData(jobData?.jobApplication);
-        break;
-    }
+    handleFilter(filter);
   }, [filter]);
   return (
     <Box>
@@ -259,38 +266,43 @@ const ApproovedMaids = () => {
         onClose={() => setShowAlert(false)}
         onProceed={handleDeletion}
       />
-      {loading || apiLoading ? (
+      {/* {loading || apiLoading ? (
         <Box width={'100%'} height={'100%'}>
           <Center>Loading....</Center>
         </Box>
-      ) : (
-        <DataTable
-          title={
-            <Flex justifyContent='space-between'>
-              <Heading size='md' flex={1}>
-                Approved Maids
-              </Heading>
-              <Select
-                flex={1}
-                maxW='10rem'
-                onChange={(e) => setFilter(e.target.value)}
-              >
-                <option value='none'>Select</option>
-                <option value='hired'>Hired</option>
-                <option value='unhired'>Un-hired</option>
-                <option value='approved'>Approved</option>
-                <option value='unapproved'>Non-approved</option>
-              </Select>
-            </Flex>
-          }
-          highlightOnHover
-          pagination
-          onRowClicked={handleRowClicked}
-          responsive
-          columns={columns}
-          data={data}
-        />
-      )}
+      ) : ( */}
+      <DataTable
+        title={
+          <Flex justifyContent='space-between'>
+            <Heading size='md' flex={1}>
+              Approved Maids
+            </Heading>
+            <Select
+              flex={1}
+              maxW='10rem'
+              onChange={(e) => setFilter(e.target.value)}
+            >
+              <option value='none'>Select</option>
+              <option value='hired'>Hired</option>
+              <option value='unhired'>Un-hired</option>
+              <option value='approved'>Approved</option>
+              <option value='unapproved'>Non-approved</option>
+            </Select>
+          </Flex>
+        }
+        highlightOnHover
+        pagination
+        onRowClicked={handleRowClicked}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleRowsPerPage}
+        responsive
+        paginationServer
+        columns={columns}
+        data={data}
+        paginationTotalRows={totalRows}
+        progressPending={apiLoading || loading}
+      />
+      {/* )} */}
     </Box>
   );
 };

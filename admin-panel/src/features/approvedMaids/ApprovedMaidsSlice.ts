@@ -9,6 +9,7 @@ const initialState = {
   error: false,
   loading: false,
   status: 'idle',
+  totalCount: 0,
   message: '',
   success: false,
 };
@@ -34,6 +35,7 @@ const ApprovedMaidSlice = createSlice({
     builder
       .addCase(fetchApprovedMaids.fulfilled, (state, action) => {
         state.maids = action.payload.data;
+        state.totalCount = action.payload.count
         state.loading = false;
         state.status = 'success';
       })

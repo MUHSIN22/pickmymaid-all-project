@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["es2018"],
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "src1",
     "strict": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -14,6 +14,6 @@
     "skipLibCheck": true,
     "noEmitOnError": false,
   },
-  "include": ["src/**/*"],
+  "include": ["src1/**/*"],
   "exclude": ["node_modules", "dist"]
 }
