@@ -14,13 +14,13 @@ import axios from "axios";
 export const revalidate = 60;
 
 const getCounts = cache(async () => {
-  if (process.env.NEXT_PUBLIC_DISABLE_API_DURING_BUILD === "true") return [];
+  // if (process.env.NEXT_PUBLIC_DISABLE_API_DURING_BUILD === "true") return [];
   const res = await axios.get(`${process.env.NEXT_TEMP_API_URL}job/counts`);
   return res.data.message;
 });
 
 const getFeaturedMaids = cache(async () => {
-  if (process.env.NEXT_PUBLIC_DISABLE_API_DURING_BUILD === "true") return [];
+  // if (process.env.NEXT_PUBLIC_DISABLE_API_DURING_BUILD === "true") return [];
   const res = await axios.get(
     `${process.env.NEXT_TEMP_API_URL}job/featured?from=${null}`
   );
