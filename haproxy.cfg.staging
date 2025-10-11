@@ -11,7 +11,7 @@ defaults
     timeout server  60s
 
 frontend fe_https
-    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/pickmymaid.pem
     mode http
     option httplog
 
