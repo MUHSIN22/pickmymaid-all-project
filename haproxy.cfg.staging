@@ -12,14 +12,17 @@ defaults
 
 frontend fe_https
     bind *:80
+    mode http
+    option httplog
 
-    acl host_frontend hdr(host) -i staging.pickmymaid.com
-    acl host_admin hdr(host) -i stagingadmin.pickmymaid.com
-    acl host_api hdr(host) -i stagingapi.pickmymaid.com
+    # Match based on substrings in the Host header
+    acl host_admin  hdr_sub(host)  stagingadmin
+    acl host_api    hdr_sub(host)  stagingapi
+    acl host_front  hdr_sub(host)  staging
 
-    use_backend be_frontend if host_frontend
-    use_backend be_admin if host_admin
-    use_backend be_server if host_api
+    use_backend be_admin   if host_admin
+    use_backend be_server  if host_api
+    use_backend be_frontend if host_front
 
 backend be_frontend
     server frontend-staging frontend-staging:3000 check
