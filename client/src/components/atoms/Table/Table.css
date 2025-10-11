@@ -1,0 +1,57 @@
+/* mobile-first default: show all borders */
+.job-cell {
+    border-color: #FF8F5F;
+    border-style: solid;
+  }
+  
+  .job-cell.logo {
+    border-width: 1px 1px 0 1px; /* top, right, bottom, left */
+  }
+  @media (min-width: 992px) {
+    .job-cell.logo {
+      border-width: 1px 0 1px 1px;
+      border-radius: 8px 0 0 8px;
+    }
+  }
+  
+  .job-cell.title-mobile {
+    border-width: 0 1px 0 1px;
+  }
+  
+  .job-cell.jobtype {
+    border-width: 0 1px 0 1px;
+  }
+  @media (min-width: 992px) {
+    .job-cell.jobtype {
+      border-width: 1px 0;
+    }
+  }
+  
+  .job-cell.location {
+    border-width: 0 1px 0 1px;
+  }
+  @media (min-width: 992px) {
+    .job-cell.location {
+      border-width: 1px 0;
+    }
+  }
+  
+  .job-cell.createdat {
+    border-width: 0 1px 0 1px;
+  }
+  @media (min-width: 992px) {
+    .job-cell.createdat {
+      border-width: 1px 0;
+    }
+  }
+  
+  .job-cell.button {
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 8px 8px 0;
+  }
+  @media (min-width: 992px) {
+    .job-cell.button {
+      border-width: 1px 1px 1px 0;
+    }
+  }
+  
